@@ -50,17 +50,17 @@ basic.forever(function () {
         basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
-        100,
+        255,
         SuperBit.enMotors.M2,
-        -100
+        -255
         )
     } else if (myControl == 4) {
         basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
-        -100,
+        -255,
         SuperBit.enMotors.M2,
-        100
+        255
         )
     } else if (myControl == 0) {
         basic.showNumber(myControl)
