@@ -30,7 +30,7 @@ radio.setGroup(1)
 myControl = 0
 SuperBit.RGB_Program().setBrightness(128)
 basic.forever(function () {
-    if (myControl) {
+    if (myControl == 1) {
         basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
@@ -42,25 +42,25 @@ basic.forever(function () {
         basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
-        -255,
+        -100,
         SuperBit.enMotors.M2,
-        -255
+        -100
         )
     } else if (myControl == 3) {
         basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
-        255,
+        100,
         SuperBit.enMotors.M2,
-        -255
+        -100
         )
     } else if (myControl == 4) {
         basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
-        -255,
+        -100,
         SuperBit.enMotors.M2,
-        255
+        100
         )
     } else if (myControl == 0) {
         basic.showNumber(myControl)
