@@ -3,12 +3,26 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 input.onButtonPressed(Button.A, function () {
     myControl = 1
-    basic.pause(2000)
+    basic.showNumber(1)
+    SuperBit.MotorRunDual(
+    SuperBit.enMotors.M1,
+    255,
+    SuperBit.enMotors.M2,
+    255
+    )
+    basic.pause(1000)
     myControl = 0
 })
 input.onButtonPressed(Button.B, function () {
-    myControl = 2
-    basic.pause(2000)
+    basic.showNumber(2)
+    myControl = 8
+    SuperBit.MotorRunDual(
+    SuperBit.enMotors.M1,
+    -255,
+    SuperBit.enMotors.M2,
+    -255
+    )
+    basic.pause(1000)
     myControl = 0
 })
 let myControl = 0
@@ -28,6 +42,7 @@ basic.forever(function () {
         SuperBit.enMotors.M2,
         255
         )
+        basic.showNumber(1)
     } else if (myControl == 2) {
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
@@ -35,6 +50,7 @@ basic.forever(function () {
         SuperBit.enMotors.M2,
         -255
         )
+        basic.showNumber(2)
     } else if (myControl == 3) {
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
@@ -42,6 +58,7 @@ basic.forever(function () {
         SuperBit.enMotors.M2,
         -255
         )
+        basic.showNumber(3)
     } else if (myControl == 4) {
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
@@ -49,7 +66,10 @@ basic.forever(function () {
         SuperBit.enMotors.M2,
         255
         )
+        basic.showNumber(4)
     } else {
+        basic.showNumber(0)
         SuperBit.MotorStopAll()
+        myControl = 0
     }
 })
