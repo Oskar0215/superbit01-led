@@ -1,6 +1,5 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    basic.showNumber(receivedNumber)
-    myControl += receivedNumber
+    myControl = receivedNumber
 })
 input.onButtonPressed(Button.A, function () {
     myControl = 1
@@ -31,7 +30,8 @@ radio.setGroup(1)
 myControl = 0
 SuperBit.RGB_Program().setBrightness(128)
 basic.forever(function () {
-    if (myControl == 1) {
+    if (myControl) {
+        basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
         255,
@@ -39,6 +39,7 @@ basic.forever(function () {
         255
         )
     } else if (myControl == 2) {
+        basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
         -255,
@@ -46,6 +47,7 @@ basic.forever(function () {
         -255
         )
     } else if (myControl == 3) {
+        basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
         255,
@@ -53,15 +55,17 @@ basic.forever(function () {
         -255
         )
     } else if (myControl == 4) {
+        basic.showNumber(myControl)
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
         -255,
         SuperBit.enMotors.M2,
         255
         )
-    } else {
-        basic.showNumber(0)
+    } else if (myControl == 0) {
+        basic.showNumber(myControl)
         SuperBit.MotorStopAll()
-        myControl = 0
+    } else {
+    	
     }
 })
